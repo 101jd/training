@@ -11,23 +11,36 @@
 import java.util.Random;
 
 public class Task003 {
+
+    private int minRowsColumns;
+    private int maxRowsColumns;
+    private int minValue;
+    int maxValue;
+
+    public Task003(int minRowsColumns, int maxRowsColumns, int minValue, int maxValue) {
+        this.minRowsColumns = minRowsColumns;
+        this.maxRowsColumns = maxRowsColumns;
+        this.minValue = minValue;
+        this.maxValue = maxValue;
+    }
+
     public int task003() {
         Random random = new Random();
 
-        int minRowsColumns = 1;
-        int maxRowsColumns = 20;
-        int minValue = 0;
-        int maxValue = 100;
+//        int minRowsColumns = 1;
+//        int maxRowsColumns = 20;
+//        int minValue = 0;
+//        int maxValue = 100;
 
         // Установление размеров таблицы
-        int rows = random.nextInt((maxRowsColumns - minRowsColumns) + 1) + minRowsColumns;
-        int columns = random.nextInt((maxRowsColumns - minRowsColumns) + 1) + minRowsColumns;
+        int rows = random.nextInt((this.maxRowsColumns - this.minRowsColumns) + 1) + this.minRowsColumns;
+        int columns = random.nextInt((this.maxRowsColumns - this.minRowsColumns) + 1) + this.minRowsColumns;
 
         // Запонение таблицы
         int[][] grid = new int[rows][columns];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                grid[i][j] = random.nextInt((maxValue - minValue) + 1) + minValue;
+                grid[i][j] = random.nextInt((this.maxValue - this.minValue) + 1) + this.minValue;
                 System.out.print(grid[i][j] + "\t");
             }
             System.out.println();
